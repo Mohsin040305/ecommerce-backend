@@ -12,6 +12,12 @@ connectDb();
 app.use(cors());
 app.use(express.json());
 
+const cors = require("cors");
+app.use(cors({
+  origin: "https://ecommerce-frontend-ev3j.onrender.com/", // set after frontend deploys
+  credentials: true
+}));
+
 app.use("/api/users", userRoute);
 app.use("/api/product", productRoute);
 app.use("/api/orders", orderRoutes);
